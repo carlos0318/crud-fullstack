@@ -13,7 +13,13 @@ app.get('/', (req, res) => {
 app.get('/mission-commanders', async (req, res) => {
     const missionCommanders = await prisma.missionCommander.findMany({});
     res.json(missionCommanders);
-})
+});
+
+app.get('/mission-commanders/:id', async (req, res) => {
+    const { id } = req.params;
+    const missionCommander = await prisma.missionCommander.findUnique({ where: { id: parseInt(id) } });
+    res.json(missionCommander);
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
