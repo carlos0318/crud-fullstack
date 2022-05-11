@@ -38,6 +38,14 @@ app.put('/mission-commanders/:id', async (req, res) => {
     res.json({message});
 });
 
+app.delete('/mission-commanders/:id', async (req, res) => {
+    const { id } = req.params;
+    await prisma.missionCommander.delete({ where: { id: parseInt(id) } });
+
+    const message = `Mission commander deleted`;
+    res.json({message});
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
