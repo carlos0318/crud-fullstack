@@ -10,6 +10,11 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+app.get('/mission-commanders', async (req, res) => {
+    const missionCommanders = await prisma.missionCommander.findMany({});
+    res.json(missionCommanders);
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
