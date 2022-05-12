@@ -2,7 +2,7 @@
 
 ### Installation:
 1. Clone the repository.
-2. Create a new database in postgres.
+2. Create a new database in PostgreSQL.
 3. Run the following commands in the terminal: `cd server`
 4. Run the following commands in the terminal: `npm install`
 5. Run the following commands in the terminal: `npx prisma migrate dev --name init` (for creating the table)
